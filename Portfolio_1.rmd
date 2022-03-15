@@ -1,0 +1,50 @@
+---
+title: "Portfolio 1"
+author: "Rachel Good"
+date: "`r Sys.Date()`"
+output: github_document
+---
+
+```{r load_data_packages}
+library(dplyr)
+library(ggplot2)
+data("ChickWeight")
+```
+
+
+```{r chickweight}
+summary(ChickWeight)
+```
+
+## Testing Different Plot Options
+
+You can also embed plots, for example:
+
+```{r plot1, echo=FALSE}
+ggplot(ChickWeight, mapping = aes(x = Diet, y = weight)) +
+  geom_point()+
+  facet_wrap(~Time)
+```
+
+```{r plot2, echo=FALSE}
+ggplot(ChickWeight, mapping = aes(x = Time, y = weight)) +
+  geom_point()+
+  facet_wrap(~Diet)
+```
+
+```{r attempt_to_make_change, echo=FALSE}
+ggplot(ChickWeight, mapping = aes(x = Time, y = weight, color = Diet)) +
+  geom_point()
+```
+
+```{r plot4, echo=FALSE}
+ggplot(ChickWeight, mapping = aes(x = Diet, y = weight, color = Time)) +
+  geom_point()+
+  facet_wrap(~Time)
+```
+
+```{r plot5_change_me, echo=FALSE}
+ggplot(ChickWeight, mapping = aes(x = Diet, y = weight)) +
+  geom_point()+
+  facet_wrap(~Time)
+```
